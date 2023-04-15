@@ -77,16 +77,7 @@
         "youtube_id": "3T7eFDPlJKM",
         "sender": {
             "name": null,
-            "message": null
-        }
-    },
-    {
-        "name": "กลิ่นดอกไม้",
-        "artist": "Newery (praesun cover)",
-        "youtube_id": "3h4jV7n8teo",
-        "sender": {
-            "name": "kiznick",
-            "message": null
+            "message": ":)"
         }
     },
     {
@@ -219,6 +210,78 @@
         "name": "ยิ้มทั้งน้ำตา",
         "artist": "Billkin // FLUKIE COVER",
         "youtube_id": "539zxz65rkQ",
+        "sender": {
+            "name": "kiznick",
+            "message": null
+        }
+    },
+    {
+        "name": "กลิ่นดอกไม้",
+        "artist": "Newery (praesun cover)",
+        "youtube_id": "3h4jV7n8teo",
+        "sender": {
+            "name": "kiznick",
+            "message": null
+        }
+    },
+    {
+        "name": "คนหรือไมโครเวฟ (Microwave)",
+        "artist": "Bell Warisara",
+        "youtube_id": "sN30XH4jPXg",
+        "sender": {
+            "name": "kiznick",
+            "message": null
+        }
+    },
+    {
+        "name": "ทีหลังจะรักใครก็ดูให้ดีก่อน / คิดถึงปีที่มีเธอ (เปิดหมวก Festival)",
+        "artist": "wish.",
+        "youtube_id": "6qg0uA22s8M",
+        "sender": {
+            "name": "kiznick",
+            "message": null
+        }
+    },
+    {
+        "name": "เลิกซ่อนเขาไว้ในเพลง",
+        "artist": "wish.",
+        "youtube_id": "CzEPRNyvquo",
+        "sender": {
+            "name": "kiznick",
+            "message": null
+        }
+    },
+    {
+        "name": "เฟื่อน (Spectrum)",
+        "artist": "Nine CAC",
+        "youtube_id": "kNJvPqqJE1o",
+        "sender": {
+            "name": "kiznick",
+            "message": null
+        }
+    },
+    {
+        "name": "11 นาฬิกา",
+        "artist": "COPTER",
+        "youtube_id": "B-QeVplkOi0",
+        "sender": {
+            "name": "kiznick",
+            "message": null
+        }
+    },
+    {
+        "name": "บังเอิญเจอแต่ตั้งใจรัก",
+        "artist": "wish.",
+        "youtube_id": "c68g7-fhRVw",
+        "sender": {
+            "name": "kiznick",
+            "message": null
+        }
+    },
+    {
+        "name": "สถานะเบลอ (BLURRR)",
+        "artist": "PROXIE ",
+        "youtube_id": "qYZfwIQVL7U",
         "sender": {
             "name": "kiznick",
             "message": null
