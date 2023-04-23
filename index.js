@@ -59,12 +59,12 @@ app.post('/api/music', (req, res) => {
     }
 
     const music = {
-        name: music_name,
-        artist: music_artist,
-        youtube_id: youtube_id,
+        name: music_name.trim(),
+        artist: music_artist.trim(),
+        youtube_id: youtube_id.trim(),
         sender: {
-            name: sender_name || null,
-            message: sender_message || null
+            name: sender_name.trim() || null,
+            message: sender_message.trim() || null
         }
     }
 
@@ -100,7 +100,7 @@ app.post('/api/find_music_name', (req, res) => {
         return res.status(400).json({ error: 'Missing params.' })
     }
 
-    const music = all_db.find({ name: music_name }).value()
+    const music = all_db.find({ name: music_name.trim() }).value()
 
     if(!music) {
         return res.status(400).json({ error: 'Music not found.' })
@@ -116,7 +116,7 @@ app.post('/api/find_music_id', (req, res) => {
         return res.status(400).json({ error: 'Missing params.' })
     }
 
-    const music = all_db.find({ youtube_id: youtube_id }).value()
+    const music = all_db.find({ youtube_id: youtube_id.trim() }).value()
 
     if(!music) {
         return res.status(400).json({ error: 'Music not found.' })

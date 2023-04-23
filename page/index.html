@@ -71,13 +71,15 @@
                     this.value = this.value.split('v=')[1].split('&')[0]
                 }
 
+                const youtube_id = this.value
+
                 request('find_music_id', {
-                    youtube_id: this.value
+                    youtube_id: youtube_id
                 }, function(code, res) {
                     if(code == 200) {
                         return swal_music_found(res.music)
                     } else {
-                        const short_url = `https://youtu.be/${this.value}`
+                        const short_url = `https://youtu.be/${youtube_id}`
                         return $.ajax({
                             url: `https://www.youtube.com/oembed?url=${short_url}&format=json`,
                             type: 'GET',
