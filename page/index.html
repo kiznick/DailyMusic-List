@@ -124,6 +124,11 @@
                     if(code == 200) {
                         Swal.fire('Success!', res.message, 'success')
                         $('#date').datepicker('setDate', res.nextDate)
+                        $('input[name="music_name"]').val('')
+                        $('input[name="music_artist"]').val('')
+                        $('input[name="youtube_id"]').val('')
+                        $('input[name="sender_name"]').val('kiznick')
+                        $('input[name="sender_message"]').val('')
                     } else {
                         Swal.fire('Error', res.error, 'error')
                         if(res.needNewDate) {
