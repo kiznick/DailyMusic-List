@@ -93,6 +93,22 @@ app.post('/api/find_available_date', (req, res) => {
     return res.status(200).json({ nextAvailableDate: dayjs(last_date, 'YYYY-MM-DD').add(1, 'days').format('YYYY-MM-DD') })
 })
 
+app.post('/api/find_music', (req, res) => {
+    const { music_name } = req.body
+
+    if(!music_name) {
+        return res.status(400).json({ error: 'Missing params.' })
+    }
+
+    const music = all_db.find({ name: music_name }).value()
+
+    if(!music) {
+        return res.status(400).json({ error: 'Music not found.' })
+    }
+
+    return res.status(200).json({ music: music })
+})
+
 http.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/`)
 })

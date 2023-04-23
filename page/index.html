@@ -85,6 +85,41 @@
                 })
             })
 
+            $('input[name="music_name"]').on('input', function() {
+                request('find_music', {
+                    music_name: this.value
+                }, function(code, res) {
+                    if(code == 200) {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Found music',
+                            html: `
+                                <b>Music Name</b> : ${res.music.name}<br>
+                                <b>Music Artist</b> : ${res.music.artist}<br>
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/${res.music.youtube_id}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            `,
+                            showDenyButton: true,
+                            showCancelButton: true,
+                            confirmButtonText: `Use this data`,
+                            denyButtonText: `Delete value`,
+                            cancelButtonText: 'Skip',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                $('input[name="youtube_id"]').val(res.music.youtube_id)
+                                $('input[name="music_name"]').val(res.music.name)
+                                $('input[name="music_artist"]').val(res.music.artist)
+                            } else if (result.isDenied) {
+                                $('input[name="music_name"]').val('')
+                                $('input[name="music_artist"]').val('')
+                                $('input[name="youtube_id"]').val('')
+                                $('input[name="sender_name"]').val('kiznick')
+                                $('input[name="sender_message"]').val('')
+                            }
+                        })
+                    }
+                })
+            })
+
             function request(endpoint, data, callback) {
                 $.ajax({
                     url: currentUrl + '/api/' + endpoint,
