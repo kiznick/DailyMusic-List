@@ -1,0 +1,7 @@
+body {
+    background-color: #000000;
+}
+
+p, h1, label {
+    color: white;
+}
