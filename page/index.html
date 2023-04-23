@@ -64,6 +64,28 @@
                 }
             })
 
+            $('input[name="youtube_id"]').on('input', function() {
+                if(this.value.includes('youtu.be')) {
+                    this.value = this.value.split('youtu.be/')[1]
+                } else if(this.value.includes('youtube.com')) {
+                    this.value = this.value.split('v=')[1].split('&')[0]
+                }
+            })
+
+            function request(endpoint, data, callback) {
+                $.ajax({
+                    url: currentUrl + '/api/' + endpoint,
+                    type: 'POST',
+                    data: data,
+                    success: function(res) {
+                        callback(200, res)
+                    },
+                    error: function(res) {
+                        callback(500, res.responseJSON)
+                    }
+                })
+            }
+
             $('form[data-form="music"]').submit(function(e) {
                 e.preventDefault()
 
