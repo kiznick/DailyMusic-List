@@ -18,16 +18,16 @@
                     <input type="text" class="form-control" placeholder="Date" aria-label="Date" name="date" id="date" required>
                 </div>
                 <div class="mt-1">
+                    <label for="youtube_id">Youtube ID</label>
+                    <input type="text" class="form-control" placeholder="Youtube ID" aria-label="Youtube ID" name="youtube_id" id="youtube_id" required>
+                </div>
+                <div class="mt-1">
                     <label for="music_name">Music Name</label>
                     <input type="text" class="form-control" placeholder="Music Name" aria-label="Music Name" name="music_name" id="music_name" required>
                 </div>
                 <div class="mt-1">
                     <label for="music_artist">Music Artist</label>
                     <input type="text" class="form-control" placeholder="Music Artist" aria-label="Music Artist" name="music_artist" id="music_artist" required>
-                </div>
-                <div class="mt-1">
-                    <label for="youtube_id">Youtube ID</label>
-                    <input type="text" class="form-control" placeholder="Youtube ID" aria-label="Youtube ID" name="youtube_id" id="youtube_id" required>
                 </div>
                 <div class="mt-1">
                     <label for="sender_name">Sender Name</label>
@@ -70,6 +70,19 @@
                 } else if(this.value.includes('youtube.com')) {
                     this.value = this.value.split('v=')[1].split('&')[0]
                 }
+
+                const short_url = `https://youtu.be/${this.value}`
+                $.ajax({
+                    url: `https://www.youtube.com/oembed?url=${short_url}&format=json`,
+                    type: 'GET',
+                    success: function(res) {
+                        $('input[name="music_name"]').val(res.title)
+                        $('input[name="music_artist"]').val(res.author_name)
+                    },
+                    error: function(res) {
+                        console.error(res)
+                    }
+                })
             })
 
             function request(endpoint, data, callback) {
