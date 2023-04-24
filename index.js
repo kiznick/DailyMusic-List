@@ -90,6 +90,10 @@ app.post('/api/find_available_date', (req, res) => {
     const last_month_value = last_month_db.value()
     const last_date = Object.keys(last_month_value).sort().pop()
 
+    if(dayjs(last_date, 'YYYY-MM-DD').isBefore(dayjs(), 'day')) {
+        return res.status(200).json({ nextAvailableDate: dayjs().format('YYYY-MM-DD') })
+    }
+
     return res.status(200).json({ nextAvailableDate: dayjs(last_date, 'YYYY-MM-DD').add(1, 'days').format('YYYY-MM-DD') })
 })
 
