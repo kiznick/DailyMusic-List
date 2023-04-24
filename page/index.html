@@ -19,7 +19,7 @@
                 </div>
                 <div class="mt-1">
                     <label for="youtube_id">Youtube ID</label>
-                    <input type="text" class="form-control" placeholder="Youtube ID" aria-label="Youtube ID" name="youtube_id" id="youtube_id" required>
+                    <input type="text" class="form-control" placeholder="Youtube ID" aria-label="Youtube ID" name="youtube_id" id="youtube_id" required autofocus>
                 </div>
                 <div class="mt-1">
                     <label for="music_name">Music Name</label>
@@ -128,9 +128,9 @@
                         $('input[name="music_name"]').val(music.name)
                         $('input[name="music_artist"]').val(music.artist)
                     } else if (result.isDenied) {
+                        $('input[name="youtube_id"]').val('').focus()
                         $('input[name="music_name"]').val('')
                         $('input[name="music_artist"]').val('')
-                        $('input[name="youtube_id"]').val('')
                         $('input[name="sender_name"]').val('kiznick')
                         $('input[name="sender_message"]').val('')
                     }
@@ -176,9 +176,9 @@
                     if(code == 200) {
                         Swal.fire('Success!', res.message, 'success')
                         $('#date').datepicker('setDate', res.nextDate)
+                        $('input[name="youtube_id"]').val('').focus()
                         $('input[name="music_name"]').val('')
                         $('input[name="music_artist"]').val('')
-                        $('input[name="youtube_id"]').val('')
                         $('input[name="sender_name"]').val('kiznick')
                         $('input[name="sender_message"]').val('')
                     } else {
